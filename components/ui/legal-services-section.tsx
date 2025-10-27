@@ -1,0 +1,99 @@
+"use client";
+import { motion } from "motion/react";
+import { Building2, Users, Shield } from "lucide-react";
+
+export function LegalServicesSection() {
+  const services = [
+    {
+      icon: Building2,
+      heading: "Business",
+      paragraph: "Form companies, get licenses, and set up your business for long-term success.",
+      mainButton: "Start my business",
+      buttons: ["LLC", "Corporation", "DBA", "Get legal help"]
+    },
+    {
+      icon: Users,
+      heading: "Family",
+      paragraph: "Create wills and estate planning documents to protect your loved ones now.",
+      mainButton: "Start my Estate Plan",
+      buttons: ["Last will", "Living trust", "Power of attorney", "Get legal help"]
+    },
+    {
+      icon: Shield,
+      heading: "Intellectual Property",
+      paragraph: "Secure trademark, copyright, and patent protection for your creative works today.",
+      mainButton: "View all options",
+      buttons: ["Trademarks", "Copyrights", "Patents"]
+    }
+  ];
+
+  return (
+    <div className="py-20 px-6 bg-gradient-to-br from-gray-50 to-white">
+      <div className="mx-auto max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Legal help for every part of your life
+          </h2>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full"
+                  >
+                    <Icon className="w-8 h-8 text-orange-600" />
+                  </motion.div>
+                  
+                  <h3 className="text-2xl font-bold text-gray-900 text-right flex-1 ml-4">
+                    {service.heading}
+                  </h3>
+                </div>
+                
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {service.paragraph}
+                </p>
+                
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg mb-4 hover:bg-orange-700 transition-colors duration-200"
+                >
+                  {service.mainButton}
+                </motion.button>
+                
+                <div className="grid grid-cols-2 gap-2">
+                  {service.buttons.map((button, btnIndex) => (
+                    <motion.button
+                      key={btnIndex}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="text-sm border border-gray-300 text-gray-700 py-2 px-3 rounded-md hover:border-orange-300 hover:text-orange-600 transition-all duration-200"
+                    >
+                      {button}
+                    </motion.button>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
