@@ -51,7 +51,6 @@ export function Button({
               borderClassName,
             )}
             style={{ background: 'radial-gradient(#ea6a61 40%, transparent 60%)' }}
-            style={{ background: 'radial-gradient(#ea6a61 40%, transparent 60%)' }}
           />
         </MovingBorder>
       </div>
