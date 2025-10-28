@@ -81,8 +81,8 @@ export function LegalServicesSection() {
                     whileTap={{ scale: 0.95 }}
                     className="w-full text-white font-semibold py-3 px-6 rounded-lg mb-4 transition-colors duration-200"
                     style={{ backgroundColor: '#ea6a61' }}
-                    onMouseEnter={(e) => e.target.style.backgroundColor = '#d85a51'}
-                    onMouseLeave={(e) => e.target.style.backgroundColor = '#ea6a61'}
+                    onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#d85a51'}
+                    onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#ea6a61'}
                   >
                     {service.mainButton}
                   </motion.button>
@@ -95,12 +95,12 @@ export function LegalServicesSection() {
                         whileTap={{ scale: 0.98 }}
                         className="text-sm border border-gray-300 text-gray-700 py-2 px-3 rounded-md transition-all duration-200"
                         onMouseEnter={(e) => {
-                          e.target.style.borderColor = '#ea6a61';
-                          e.target.style.color = '#ea6a61';
+                          (e.target as HTMLButtonElement).style.borderColor = '#ea6a61';
+                          (e.target as HTMLButtonElement).style.color = '#ea6a61';
                         }}
                         onMouseLeave={(e) => {
-                          e.target.style.borderColor = '#d1d5db';
-                          e.target.style.color = '#374151';
+                          (e.target as HTMLButtonElement).style.borderColor = '#d1d5db';
+                          (e.target as HTMLButtonElement).style.color = '#374151';
                         }}
                       >
                         {button}
