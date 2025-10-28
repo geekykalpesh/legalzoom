@@ -85,12 +85,12 @@ export function ContactSection() {
               className="px-6 py-3 rounded-lg border-2 font-semibold transition-all duration-200 hover:scale-105"
               style={{ borderColor: '#ea6a61', color: '#ea6a61' }}
               onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#ea6a61';
-                e.target.style.color = 'white';
+                (e.target as HTMLButtonElement).style.backgroundColor = '#ea6a61';
+                (e.target as HTMLButtonElement).style.color = 'white';
               }}
               onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#ea6a61';
+                (e.target as HTMLButtonElement).style.backgroundColor = 'transparent';
+                (e.target as HTMLButtonElement).style.color = '#ea6a61';
               }}
             >
               Chat with us
