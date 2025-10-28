@@ -26,7 +26,7 @@ export function Footer() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 rounded-md transition-colors" style={{ backgroundColor: '#ea6a61' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#d85a51'} onMouseLeave={(e) => e.target.style.backgroundColor = '#ea6a61'}
+                className="px-6 py-2 rounded-md transition-colors" style={{ backgroundColor: '#ea6a61' }} onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#d85a51'} onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#ea6a61'}
               >
                 Subscribe
               </motion.button>
