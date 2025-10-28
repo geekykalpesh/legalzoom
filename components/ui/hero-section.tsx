@@ -88,13 +88,13 @@ export function HeroSection() {
               containerClassName="w-auto h-auto"
               as="a"
               href="#"
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#ea6a61';
-                e.target.style.boxShadow = '0 25px 50px -12px rgba(234, 106, 97, 0.5)';
+              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                (e.target as HTMLAnchorElement).style.backgroundColor = '#ea6a61';
+                (e.target as HTMLAnchorElement).style.boxShadow = '0 25px 50px -12px rgba(234, 106, 97, 0.5)';
               }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'black';
-                e.target.style.boxShadow = '';
+              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                (e.target as HTMLAnchorElement).style.backgroundColor = 'black';
+                (e.target as HTMLAnchorElement).style.boxShadow = '';
               }}
             >
               Business Formation
@@ -105,13 +105,13 @@ export function HeroSection() {
               containerClassName="w-auto h-auto"
               as="a"
               href="#"
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#ea6a61';
-                e.target.style.boxShadow = '0 25px 50px -12px rgba(234, 106, 97, 0.5)';
+              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                (e.target as HTMLAnchorElement).style.backgroundColor = '#ea6a61';
+                (e.target as HTMLAnchorElement).style.boxShadow = '0 25px 50px -12px rgba(234, 106, 97, 0.5)';
               }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'black';
-                e.target.style.boxShadow = '';
+              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                (e.target as HTMLAnchorElement).style.backgroundColor = 'black';
+                (e.target as HTMLAnchorElement).style.boxShadow = '';
               }}
             >
               Wills & Trusts
@@ -122,13 +122,13 @@ export function HeroSection() {
               containerClassName="w-auto h-auto"
               as="a"
               href="#"
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#ea6a61';
-                e.target.style.boxShadow = '0 25px 50px -12px rgba(234, 106, 97, 0.5)';
+              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                (e.target as HTMLAnchorElement).style.backgroundColor = '#ea6a61';
+                (e.target as HTMLAnchorElement).style.boxShadow = '0 25px 50px -12px rgba(234, 106, 97, 0.5)';
               }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'black';
-                e.target.style.boxShadow = '';
+              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                (e.target as HTMLAnchorElement).style.backgroundColor = 'black';
+                (e.target as HTMLAnchorElement).style.boxShadow = '';
               }}
             >
               Intellectual Property
