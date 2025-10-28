@@ -1,33 +1,7 @@
 "use client";
 import { motion } from "motion/react";
-import { useEffect } from "react";
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'lord-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-        src?: string;
-        trigger?: string;
-        colors?: string;
-        style?: React.CSSProperties;
-      };
-    }
-  }
-}
 
 export function Footer() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.lordicon.com/lordicon.js';
-    script.async = true;
-    document.head.appendChild(script);
-    
-    return () => {
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
-    };
-  }, []);
 
   return (
     <footer className="bg-white text-black py-6 relative z-50">
@@ -36,12 +10,9 @@ export function Footer() {
           {/* Newsletter */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <lord-icon
-                src="https://cdn.lordicon.com/icons/system/regular/57-email.json"
-                trigger="hover"
-                colors="primary:#ea6a61,secondary:#d85a51"
-                style={{ width: '24px', height: '24px' }}
-              />
+              <div className="w-6 h-6 rounded-full bg-[#ea6a61] flex items-center justify-center">
+                <span className="text-white text-sm">✉</span>
+              </div>
               <h3 className="text-lg font-semibold">
                 Get helpful tips!
               </h3>
