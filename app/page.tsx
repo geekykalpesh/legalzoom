@@ -18,6 +18,7 @@ import { WhyChooseUsSection } from "../components/ui/why-choose-us-section";
 import { LegalServicesSection } from "../components/ui/legal-services-section";
 import { TestimonialsSection } from "../components/ui/testimonials-section";
 import { Footer } from "../components/ui/footer";
+import { ContactSection } from "../components/ui/contact-section";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,11 +60,13 @@ export default function Home() {
       
       <HighlightsSection />
       
-      <WhyChooseUsSection />
       
       <LegalServicesSection />
       
       <TestimonialsSection />
+      <WhyChooseUsSection />
+      
+      <ContactSection />
       
       <Footer />
     </div>

@@ -35,7 +35,7 @@ export function HeroSection() {
           maxSize={1.4}
           particleDensity={100}
           className="w-full h-full"
-          particleColor="#f45a27"
+          particleColor="#ea6a61"
           speed={2}
         />
       </div>
@@ -63,7 +63,7 @@ export function HeroSection() {
           >
             <h1 className="text-6xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight">
               U.S. Legal Help in
-              <FlipWords words={["United Arab Emirates", "Dubai", "Abu Dhabi", "Middle East"]} className="text-6xl md:text-7xl font-extrabold" style={{color: '#f45a27'}} />
+              <FlipWords words={["United Arab Emirates", "Dubai", "Abu Dhabi", "Middle East"]} className="text-6xl md:text-7xl font-extrabold" style={{color: '#ea6a61'}} />
             </h1>
           </motion.div>
           
@@ -84,28 +84,52 @@ export function HeroSection() {
           >
             <Button
               borderRadius="0.5rem"
-              className="bg-black text-white font-medium px-8 py-4 hover:bg-orange-500 hover:shadow-2xl hover:shadow-orange-500/50 hover:scale-105 hover:-translate-y-2 active:scale-95 active:translate-y-0 active:shadow-lg transition-all duration-200"
+              className="bg-black text-white font-medium px-8 py-4 hover:scale-105 hover:-translate-y-2 active:scale-95 active:translate-y-0 active:shadow-lg transition-all duration-200"
               containerClassName="w-auto h-auto"
               as="a"
               href="#"
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = '#ea6a61';
+                e.target.style.boxShadow = '0 25px 50px -12px rgba(234, 106, 97, 0.5)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = 'black';
+                e.target.style.boxShadow = '';
+              }}
             >
               Business Formation
             </Button>
             <Button
               borderRadius="0.5rem"
-              className="bg-black text-white font-medium px-8 py-4 hover:bg-orange-500 hover:shadow-2xl hover:shadow-orange-500/50 hover:scale-105 hover:-translate-y-2 active:scale-95 active:translate-y-0 active:shadow-lg transition-all duration-200"
+              className="bg-black text-white font-medium px-8 py-4 hover:scale-105 hover:-translate-y-2 active:scale-95 active:translate-y-0 active:shadow-lg transition-all duration-200"
               containerClassName="w-auto h-auto"
               as="a"
               href="#"
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = '#ea6a61';
+                e.target.style.boxShadow = '0 25px 50px -12px rgba(234, 106, 97, 0.5)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = 'black';
+                e.target.style.boxShadow = '';
+              }}
             >
               Wills & Trusts
             </Button>
             <Button
               borderRadius="0.5rem"
-              className="bg-black text-white font-medium px-8 py-4 hover:bg-orange-500 hover:shadow-2xl hover:shadow-orange-500/50 hover:scale-105 hover:-translate-y-2 active:scale-95 active:translate-y-0 active:shadow-lg transition-all duration-200"
+              className="bg-black text-white font-medium px-8 py-4 hover:scale-105 hover:-translate-y-2 active:scale-95 active:translate-y-0 active:shadow-lg transition-all duration-200"
               containerClassName="w-auto h-auto"
               as="a"
               href="#"
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = '#ea6a61';
+                e.target.style.boxShadow = '0 25px 50px -12px rgba(234, 106, 97, 0.5)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = 'black';
+                e.target.style.boxShadow = '';
+              }}
             >
               Intellectual Property
             </Button>

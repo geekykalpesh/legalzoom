@@ -1,25 +1,48 @@
 "use client";
 import { motion } from "motion/react";
-import { Building2, Users, Shield } from "lucide-react";
+import { GlowingEffect } from "./glowing-effect";
+
+import { useEffect } from "react";
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'lord-icon': any;
+    }
+  }
+}
 
 export function LegalServicesSection() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.lordicon.com/lordicon.js';
+    script.async = true;
+    document.head.appendChild(script);
+    
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
   const services = [
     {
-      icon: Building2,
+      iconSrc: "https://cdn.lordicon.com/jvucoldz.json",
       heading: "Business",
       paragraph: "Form companies, get licenses, and set up your business for long-term success.",
       mainButton: "Start my business",
       buttons: ["LLC", "Corporation", "DBA", "Get legal help"]
     },
     {
-      icon: Users,
+      iconSrc: "https://cdn.lordicon.com/hrjifpbq.json",
       heading: "Family",
       paragraph: "Create wills and estate planning documents to protect your loved ones now.",
       mainButton: "Start my Estate Plan",
       buttons: ["Last will", "Living trust", "Power of attorney", "Get legal help"]
     },
     {
-      icon: Shield,
+      iconSrc: "https://cdn.lordicon.com/kkvxgpti.json",
       heading: "Intellectual Property",
       paragraph: "Secure trademark, copyright, and patent protection for your creative works today.",
       mainButton: "View all options",
@@ -40,60 +63,82 @@ export function LegalServicesSection() {
             Legal help for every part of your life
           </h2>
         </motion.div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full"
-                  >
-                    <Icon className="w-8 h-8 text-orange-600" />
-                  </motion.div>
-                  
-                  <h3 className="text-2xl font-bold text-gray-900 text-right flex-1 ml-4">
-                    {service.heading}
-                  </h3>
-                </div>
-                
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {service.paragraph}
-                </p>
-                
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg mb-4 hover:bg-orange-700 transition-colors duration-200"
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="relative bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
                 >
-                  {service.mainButton}
-                </motion.button>
-                
-                <div className="grid grid-cols-2 gap-2">
-                  {service.buttons.map((button, btnIndex) => (
-                    <motion.button
-                      key={btnIndex}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="text-sm border border-gray-300 text-gray-700 py-2 px-3 rounded-md hover:border-orange-300 hover:text-orange-600 transition-all duration-200"
+                  <GlowingEffect
+                    disabled={false}
+                    proximity={100}
+                    spread={30}
+                    blur={2}
+                    borderWidth={2}
+                  />
+                  <div className="flex items-center justify-between mb-6">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      className="inline-flex items-center justify-center w-16 h-16 rounded-full"
+                      style={{ backgroundColor: '#ea6a611a' }}
                     >
-                      {button}
-                    </motion.button>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
+                      <lord-icon
+                        src={service.iconSrc}
+                        trigger="hover"
+                        colors="primary:#ea6a61,secondary:#d85a51"
+                        style={{ width: '32px', height: '32px' }}
+                      />
+                    </motion.div>
+                    
+                    <h3 className="text-2xl font-bold text-gray-900 text-right flex-1 ml-4">
+                      {service.heading}
+                    </h3>
+                  </div>
+                  
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {service.paragraph}
+                  </p>
+                  
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-full text-white font-semibold py-3 px-6 rounded-lg mb-4 transition-colors duration-200"
+                    style={{ backgroundColor: '#ea6a61' }}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = '#d85a51'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = '#ea6a61'}
+                  >
+                    {service.mainButton}
+                  </motion.button>
+                  
+                  <div className="grid grid-cols-2 gap-2">
+                    {service.buttons.map((button, btnIndex) => (
+                      <motion.button
+                        key={btnIndex}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="text-sm border border-gray-300 text-gray-700 py-2 px-3 rounded-md transition-all duration-200"
+                        onMouseEnter={(e) => {
+                          e.target.style.borderColor = '#ea6a61';
+                          e.target.style.color = '#ea6a61';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.borderColor = '#d1d5db';
+                          e.target.style.color = '#374151';
+                        }}
+                      >
+                        {button}
+                      </motion.button>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
   );
 }

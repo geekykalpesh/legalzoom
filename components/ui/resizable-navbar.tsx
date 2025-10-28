@@ -8,7 +8,15 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'lord-icon': any;
+    }
+  }
+}
 
 
 interface NavbarProps {
@@ -225,17 +233,25 @@ export const MobileNavToggle = ({
 };
 
 export const NavbarLogo = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.lordicon.com/lordicon.js';
+    script.async = true;
+    document.head.appendChild(script);
+    
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <a
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      <img
-        src="/logo.svg"
-        alt="logo"
-        width={120}
-        height={40}
-      />
+      <span className="font-bold text-xl text-black">LegalZoom</span>
     </a>
   );
 };

@@ -83,7 +83,7 @@ export function HighlightsSection() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="text-center"
             >
-              <div className="text-5xl font-bold text-orange-500 mb-4">
+              <div className="text-5xl font-bold mb-4" style={{ color: '#ea6a61' }}>
                 <AnimatedNumber finalNumber={highlight.number} />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">
