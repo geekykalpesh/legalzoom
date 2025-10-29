@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Navbar,
   NavBody,
@@ -22,6 +22,17 @@ import { ContactSection } from "../components/ui/contact-section";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.lordicon.com/lordicon.js';
+    script.async = true;
+    document.head.appendChild(script);
+    
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   const navItems = [
     { name: "Business", link: "/business" },

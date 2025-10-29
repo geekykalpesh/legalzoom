@@ -5,8 +5,9 @@ import { FlipWords } from "./flip-words";
 import { AnimatedShinyText } from "./animated-shiny-text";
 import { BackgroundBeamsWithCollision } from "./background-beams-with-collision";
 import { SparklesCore } from "./sparkles";
-import { Button } from "./moving-border";
+
 import { Ripple } from "./ripple";
+import { CardContainer, CardBody, CardItem } from "./3d-card";
 
 export function HeroSection() {
   return (
@@ -24,9 +25,13 @@ export function HeroSection() {
         <Ripple />
       </div>
       
-      <div className="absolute -bottom-48 -left-48 w-96 h-96 rounded-full border-[64px] border-black opacity-15 z-2 animate-spin" style={{animationDuration: '20s'}}></div>
+      <div className="absolute bottom-10 left-10 z-2">
+        <Ripple />
+      </div>
       
-      <div className="absolute -bottom-48 -right-48 w-96 h-96 rounded-full border-[64px] border-black opacity-15 z-2 animate-spin" style={{animationDuration: '25s', animationDirection: 'reverse'}}></div>
+      <div className="absolute bottom-10 right-10 z-2">
+        <Ripple />
+      </div>
       
       <div className="absolute inset-0 z-5 opacity-45">
         <SparklesCore
@@ -82,57 +87,29 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Button
-              borderRadius="0.5rem"
-              className="bg-black text-white font-medium px-8 py-4 hover:scale-105 hover:-translate-y-2 active:scale-95 active:translate-y-0 active:shadow-lg transition-all duration-200"
-              containerClassName="w-auto h-auto"
-              as="a"
-              href="#"
-              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                (e.target as HTMLAnchorElement).style.backgroundColor = '#ea6a61';
-                (e.target as HTMLAnchorElement).style.boxShadow = '0 25px 50px -12px rgba(234, 106, 97, 0.5)';
-              }}
-              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                (e.target as HTMLAnchorElement).style.backgroundColor = 'black';
-                (e.target as HTMLAnchorElement).style.boxShadow = '';
-              }}
-            >
-              Business Formation
-            </Button>
-            <Button
-              borderRadius="0.5rem"
-              className="bg-black text-white font-medium px-8 py-4 hover:scale-105 hover:-translate-y-2 active:scale-95 active:translate-y-0 active:shadow-lg transition-all duration-200"
-              containerClassName="w-auto h-auto"
-              as="a"
-              href="#"
-              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                (e.target as HTMLAnchorElement).style.backgroundColor = '#ea6a61';
-                (e.target as HTMLAnchorElement).style.boxShadow = '0 25px 50px -12px rgba(234, 106, 97, 0.5)';
-              }}
-              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                (e.target as HTMLAnchorElement).style.backgroundColor = 'black';
-                (e.target as HTMLAnchorElement).style.boxShadow = '';
-              }}
-            >
-              Wills & Trusts
-            </Button>
-            <Button
-              borderRadius="0.5rem"
-              className="bg-black text-white font-medium px-8 py-4 hover:scale-105 hover:-translate-y-2 active:scale-95 active:translate-y-0 active:shadow-lg transition-all duration-200"
-              containerClassName="w-auto h-auto"
-              as="a"
-              href="#"
-              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                (e.target as HTMLAnchorElement).style.backgroundColor = '#ea6a61';
-                (e.target as HTMLAnchorElement).style.boxShadow = '0 25px 50px -12px rgba(234, 106, 97, 0.5)';
-              }}
-              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                (e.target as HTMLAnchorElement).style.backgroundColor = 'black';
-                (e.target as HTMLAnchorElement).style.boxShadow = '';
-              }}
-            >
-              Intellectual Property
-            </Button>
+            <button>
+              <span className="shadow"></span>
+              <span className="edge"></span>
+              <span className="front flex items-center gap-2">
+                <lord-icon
+                  src="https://cdn.lordicon.com/qlpudrww.json"
+                  trigger="hover"
+                  colors="primary:#ffffff"
+                  style={{width:"20px", height:"20px"}}
+                ></lord-icon>
+                Business Formation
+              </span>
+            </button>
+            <button>
+              <span className="shadow"></span>
+              <span className="edge"></span>
+              <span className="front">Wills & Trusts</span>
+            </button>
+            <button>
+              <span className="shadow"></span>
+              <span className="edge"></span>
+              <span className="front">Intellectual Property</span>
+            </button>
           </motion.div>
         </div>
       </main>

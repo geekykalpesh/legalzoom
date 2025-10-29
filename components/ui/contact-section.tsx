@@ -2,6 +2,7 @@
 import { motion } from "motion/react";
 import { LampContainer } from "./lamp";
 import { SparklesCore } from "./sparkles";
+import { CardContainer, CardBody, CardItem } from "./3d-card";
 
 export function ContactSection() {
   const contactInfo = [
@@ -60,44 +61,54 @@ export function ContactSection() {
         Get in touch with our team for support and sales inquiries
       </motion.p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+      <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
         {contactInfo.map((contact, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 + index * 0.2 }}
-            className="text-center p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300"
           >
-            <h3 className="text-2xl font-semibold text-white mb-6">
-              {contact.title}
-            </h3>
-            
-            <div className="text-3xl font-bold mb-4" style={{ color: '#ea6a61' }}>
-              {contact.phone}
-            </div>
-            
-            <p className="text-slate-400 mb-6 whitespace-pre-line">
-              {contact.hours}
-            </p>
-            
-            <button 
-              className="px-6 py-3 rounded-lg border-2 font-semibold transition-all duration-200 hover:scale-105"
-              style={{ borderColor: '#ea6a61', color: '#ea6a61' }}
-              onMouseEnter={(e) => {
-                (e.target as HTMLButtonElement).style.backgroundColor = '#ea6a61';
-                (e.target as HTMLButtonElement).style.color = 'white';
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLButtonElement).style.backgroundColor = 'transparent';
-                (e.target as HTMLButtonElement).style.color = '#ea6a61';
-              }}
-            >
-              Chat with us
-            </button>
+            <CardContainer className="inter-var py-2">
+              <CardBody className="bg-white/10 backdrop-blur-sm relative group/card border-white/20 w-80 h-auto rounded-xl p-8 border">
+                <CardItem translateZ="50" className="text-center mb-6">
+                  <h3 className="text-2xl font-semibold text-white">
+                    {contact.title}
+                  </h3>
+                </CardItem>
+                
+                <CardItem translateZ="60" className="text-center mb-4">
+                  <div className="text-3xl font-bold" style={{ color: '#ea6a61' }}>
+                    {contact.phone}
+                  </div>
+                </CardItem>
+                
+                <CardItem translateZ="40" as="p" className="text-slate-400 mb-6 whitespace-pre-line text-center">
+                  {contact.hours}
+                </CardItem>
+                
+                <CardItem translateZ="80" className="w-full">
+                  <button>
+                    <span className="shadow"></span>
+                    <span className="edge"></span>
+                    <span className="front flex items-center gap-2">
+                      <lord-icon
+                        src="https://cdn.lordicon.com/bpptgtfr.json"
+                        trigger="hover"
+                        colors="primary:#ffffff"
+                        style={{width:"20px", height:"20px"}}
+                      ></lord-icon>
+                      Chat with us
+                    </span>
+                  </button>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
           </motion.div>
         ))}
       </div>
+      
+
     </LampContainer>
   );
 }

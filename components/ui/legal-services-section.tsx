@@ -1,6 +1,9 @@
 "use client";
 import { motion } from "motion/react";
 import { GlowingEffect } from "./glowing-effect";
+import { CardContainer, CardBody, CardItem } from "./3d-card";
+import { PointerHighlight } from "./pointer-highlight";
+import { TypewriterEffectSmooth } from "./typewriter-effect";
 
 export function LegalServicesSection() {
 
@@ -21,7 +24,7 @@ export function LegalServicesSection() {
     },
     {
       icon: "💡",
-      heading: "Intellectual Property",
+      heading: "Patents",
       paragraph: "Secure trademark, copyright, and patent protection for your creative works today.",
       mainButton: "View all options",
       buttons: ["Trademarks", "Copyrights", "Patents"]
@@ -35,79 +38,84 @@ export function LegalServicesSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center "
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Legal help for every part of your life
-          </h2>
+          <TypewriterEffectSmooth 
+            words={[
+              { text: "Legal" },
+              { text: "help" },
+              { text: "for" },
+              { text: "every" },
+              { text: "part" },
+              { text: "of" },
+              { text: "your" },
+              { text: "life", className: "text-[#ea6a61]" }
+            ]}
+            cursorClassName="bg-[#ea6a61]"
+            className="text-4xl md:text-5xl font-bold text-gray-900 justify-center"
+          />
         </motion.div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-4">
             {services.map((service, index) => {
               return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="relative bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-                >
-                  <GlowingEffect
-                    disabled={false}
-                    proximity={100}
-                    spread={30}
-                    blur={2}
-                    borderWidth={2}
-                  />
-                  <div className="flex items-center justify-between mb-6">
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      className="inline-flex items-center justify-center w-16 h-16 rounded-full text-2xl"
-                      style={{ backgroundColor: '#ea6a611a' }}
-                    >
-                      {service.icon}
-                    </motion.div>
-                    
-                    <h3 className="text-2xl font-bold text-gray-900 text-right flex-1 ml-4">
-                      {service.heading}
-                    </h3>
-                  </div>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {service.paragraph}
-                  </p>
-                  
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-full text-white font-semibold py-3 px-6 rounded-lg mb-4 transition-colors duration-200"
-                    style={{ backgroundColor: '#ea6a61' }}
-                    onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#d85a51'}
-                    onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#ea6a61'}
-                  >
-                    {service.mainButton}
-                  </motion.button>
-                  
-                  <div className="grid grid-cols-2 gap-2">
-                    {service.buttons.map((button, btnIndex) => (
-                      <motion.button
-                        key={btnIndex}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="text-sm border border-gray-300 text-gray-700 py-2 px-3 rounded-md transition-all duration-200"
-                        onMouseEnter={(e) => {
-                          (e.target as HTMLButtonElement).style.borderColor = '#ea6a61';
-                          (e.target as HTMLButtonElement).style.color = '#ea6a61';
-                        }}
-                        onMouseLeave={(e) => {
-                          (e.target as HTMLButtonElement).style.borderColor = '#d1d5db';
-                          (e.target as HTMLButtonElement).style.color = '#374151';
-                        }}
+                <CardContainer key={index} className="inter-var py-2">
+                  <CardBody className="bg-gray-50 relative group/card border-gray-200 w-80 h-auto rounded-xl p-6 border">
+                    <CardItem translateZ="50" className="flex items-center justify-between mb-6 gap-4">
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        className="inline-flex items-center justify-center w-16 h-16 rounded-full text-2xl"
+                        style={{ backgroundColor: '#ea6a611a' }}
                       >
-                        {button}
-                      </motion.button>
-                    ))}
-                  </div>
-                </motion.div>
+                        {index === 0 ? (
+                          <lord-icon
+                            src="https://cdn.lordicon.com/qlpudrww.json"
+                            trigger="hover"
+                            colors="primary:#ea6a61"
+                            style={{width:"40px", height:"40px"}}
+                          ></lord-icon>
+                        ) : index === 1 ? (
+                          <lord-icon
+                            src="https://cdn.lordicon.com/oeotfwsx.json"
+                            trigger="hover"
+                            colors="primary:#ea6a61"
+                            style={{width:"40px", height:"40px"}}
+                          ></lord-icon>
+                        ) : (
+                          <lord-icon
+                            src="https://cdn.lordicon.com/jqqjtvlf.json"
+                            trigger="hover"
+                            colors="primary:#ea6a61"
+                            style={{width:"40px", height:"40px"}}
+                          ></lord-icon>
+                        )}
+                      </motion.div>
+                      
+                      <h3 className="text-2xl font-bold text-gray-900 text-right flex-1 ml-4">
+                        {service.heading}
+                      </h3>
+                    </CardItem>
+                    
+                    <CardItem translateZ="60" as="p" className="text-gray-600 mb-6 leading-relaxed">
+                      {service.paragraph}
+                    </CardItem>
+                    
+                    <CardItem translateZ="80" className="w-full mb-4">
+                      <button className="w-full">
+                        <span className="shadow"></span>
+                        <span className="edge"></span>
+                        <span className="front">{service.mainButton}</span>
+                      </button>
+                    </CardItem>
+                    
+                    <CardItem translateZ="40" className="grid grid-cols-2 gap-2 justify-items-center">
+                      {service.buttons.map((button, btnIndex) => (
+                        <button key={btnIndex} className="secondary-button">
+                          {button}
+                        </button>
+                      ))}
+                    </CardItem>
+                  </CardBody>
+                </CardContainer>
               );
             })}
           </div>
