@@ -1,5 +1,5 @@
 "use client";
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 import { cn } from "@/lib/utils";
 import { Spotlight } from "./spotlight";
 
@@ -38,12 +38,30 @@ export function TestimonialsSection() {
         fill="white"
       />
       <div className="relative z-10 w-full">
-        <div className="text-center ">
+        <div className="text-center p-5 ">
           <h2 className="bg-opacity-50 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-center text-4xl font-bold text-transparent md:text-5xl ">
             What our clients say
           </h2>
         </div>
-        <AnimatedTestimonials testimonials={testimonials} autoplay={true} />
+        <div className="flex justify-center">
+          <CircularTestimonials 
+            testimonials={testimonials} 
+            autoplay={true}
+            colors={{
+              name: "#f7f7ff",
+              designation: "#e1e1e1",
+              testimony: "#f1f1f7",
+              arrowBackground: "#ea6a61",
+              arrowForeground: "#ffffff",
+              arrowHoverBackground: "#d55a51",
+            }}
+            fontSizes={{
+              name: "28px",
+              designation: "18px",
+              quote: "18px",
+            }}
+          />
+        </div>
       </div>
     </div>
   );

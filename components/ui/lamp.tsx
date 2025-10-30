@@ -52,7 +52,7 @@ export const LampContainer = ({
         </motion.div>
         <div className="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-black blur-2xl"></div>
         <div className="absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md"></div>
-        <div className="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full opacity-30 blur-3xl" style={{ backgroundColor: '#ea6a61' }}></div>
+        <div className="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full opacity-20 blur-3xl" style={{ backgroundColor: '#ea6a61' }}></div>
         <motion.div
           initial={{ width: "8rem" }}
           whileInView={{ width: "16rem" }}
@@ -61,7 +61,7 @@ export const LampContainer = ({
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="absolute inset-auto z-30 h-36 w-64 -translate-y-[6rem] rounded-full blur-2xl opacity-40"
+          className="absolute inset-auto z-30 h-36 w-64 -translate-y-[6rem] rounded-full blur-2xl opacity-25"
           style={{ backgroundColor: '#ea6a61' }}
         ></motion.div>
         <motion.div
@@ -72,7 +72,7 @@ export const LampContainer = ({
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="absolute inset-auto z-50 h-0.5 w-[30rem] -translate-y-[7rem] opacity-60"
+          className="absolute inset-auto z-50 h-0.5 w-[30rem] -translate-y-[7rem] opacity-40"
           style={{ backgroundColor: '#ea6a61' }}
         ></motion.div>
 

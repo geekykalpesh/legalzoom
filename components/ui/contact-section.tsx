@@ -28,16 +28,21 @@ export function ContactSection() {
           duration: 1.5,
           ease: "easeInOut",
         }}
-        className="absolute top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] [mask-image:radial-gradient(ellipse_300px_200px_at_center,white_20%,transparent_70%)]"
+        className="absolute top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px]"
       >
-        <SparklesCore
-          background="transparent"
-          minSize={0.4}
-          maxSize={1}
-          particleDensity={800}
-          className="w-full h-full"
-          particleColor="#FFFFFF"
-        />
+
+        <div className="w-full h-full overflow-hidden rounded-full">
+          <div className="w-full h-full [mask-image:linear-gradient(to_bottom,transparent_0%,transparent_55%,white_55%,white_100%)]">
+            <SparklesCore
+              background="transparent"
+              minSize={0.4}
+              maxSize={1}
+              particleDensity={400}
+              className="w-full h-full"
+              particleColor="#FFFFFF"
+            />
+          </div>
+        </div>
       </motion.div>
       <motion.h2
         initial={{ opacity: 0.5, y: 100 }}
@@ -56,7 +61,7 @@ export function ContactSection() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.1, duration: 0.6 }}
-        className="text-white text-lg max-w-2xl mx-auto text-center mb-4"
+        className="text-white text-lg max-w-2xl mx-auto text-center mb-8"
       >
         Get in touch with our team for support and sales inquiries
       </motion.p>

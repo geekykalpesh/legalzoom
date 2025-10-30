@@ -2,6 +2,8 @@
 import { motion } from "motion/react";
 import { PointerHighlight } from "./pointer-highlight";
 import { LayoutTextFlip } from "./layout-text-flip";
+import { cn } from "@/lib/utils";
+import { CardContainer, CardBody, CardItem } from "./3d-card";
 
 export function WhyChooseUsSection() {
   const features = [
@@ -21,8 +23,14 @@ export function WhyChooseUsSection() {
 
   return (
     <div className="section bg-white relative overflow-hidden">
-      <div className="absolute -bottom-48 -left-48 w-96 h-96 rounded-full border-[64px] border-[#ea6a61] opacity-15 z-0 animate-spin" style={{animationDuration: '20s'}}></div>
-      <div className="absolute -top-48 -right-48 w-96 h-96 rounded-full border-[64px] border-[#ea6a61] opacity-15 z-0 animate-spin" style={{animationDuration: '25s', animationDirection: 'reverse'}}></div>
+      <div
+        className={cn(
+          "absolute inset-0",
+          "[background-size:40px_40px]",
+          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
+        )}
+      />
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <div className="container-xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,21 +46,26 @@ export function WhyChooseUsSection() {
           </div>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
+        <div className="flex flex-wrap justify-center gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center p-6"
             >
-              <h3 className="heading-sm text-gray-900 mb-sm">
-                {feature.title}
-              </h3>
-              <p className="text-base text-gray-600">
-                {feature.description}
-              </p>
+              <CardContainer className="inter-var">
+                <CardBody className="bg-gradient-to-br from-gray-900 to-black relative group/card border-gray-700 w-80 h-auto rounded-xl p-8 border border-l-4 border-l-[#ea6a61] shadow-2xl shadow-black/50">
+                  <CardItem translateZ="100" className="text-center mb-4">
+                    <h3 className="heading-sm text-white">
+                      {feature.title}
+                    </h3>
+                  </CardItem>
+                  <CardItem translateZ="80" as="p" className="text-base text-white text-center">
+                    {feature.description}
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
             </motion.div>
           ))}
         </div>
