@@ -68,7 +68,7 @@ export function HeroSection() {
           >
             <h1 className="text-6xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight">
               U.S. Legal Help in
-              <FlipWords words={["United Arab Emirates", "Dubai", "Abu Dhabi", "Middle East"]} className="text-6xl md:text-7xl font-extrabold" style={{color: '#ea6a61'}} />
+              <FlipWords words={["United Arab Emirates", "Dubai", "Abu Dhabi", "Middle East"]} className="text-6xl md:text-7xl font-extrabold text-center" style={{color: '#ea6a61'}} />
             </h1>
           </motion.div>
           
@@ -91,7 +91,7 @@ export function HeroSection() {
               <span className="shadow"></span>
               <span className="edge"></span>
               <span className="front flex items-center gap-2">
-                🏢
+
                 Business Formation
               </span>
             </button>

@@ -58,11 +58,11 @@ export function LegalServicesSection() {
                         className="inline-flex items-center justify-center w-16 h-16 rounded-full text-2xl bg-[#ea6a611a]"
                       >
                         {index === 0 ? (
-                          <div className="w-10 h-10 bg-[#ea6a61] rounded-full flex items-center justify-center text-white text-lg font-bold">B</div>
+                          <img src="/work.gif" alt="Business" className="w-10 h-10" />
                         ) : index === 1 ? (
-                          <div className="w-10 h-10 bg-[#ea6a61] rounded-full flex items-center justify-center text-white text-lg font-bold">F</div>
+                          <img src="/home.gif" alt="Family" className="w-10 h-10" />
                         ) : (
-                          <div className="w-10 h-10 bg-[#ea6a61] rounded-full flex items-center justify-center text-white text-lg font-bold">P</div>
+                          <img src="/file.gif" alt="Patents" className="w-10 h-10" />
                         )}
                       </motion.div>
                       

@@ -93,11 +93,18 @@ export function ContactSection() {
                 </CardItem>
                 
                 <CardItem translateZ="80" className="w-full">
-                  <button>
+                  <button onMouseEnter={(e) => {
+                    const chatIcon = e.currentTarget.querySelector('img[alt="Chat"]') as HTMLImageElement;
+                    if (chatIcon) {
+                      const currentSrc = chatIcon.src;
+                      chatIcon.src = '';
+                      chatIcon.src = currentSrc.split('?')[0] + '?reload=' + Math.random();
+                    }
+                  }}>
                     <span className="shadow"></span>
                     <span className="edge"></span>
                     <span className="front flex items-center gap-2">
-                      💬
+                      <img src="/chat.gif" alt="Chat" className="w-5 h-5" />
                       Chat with us
                     </span>
                   </button>
