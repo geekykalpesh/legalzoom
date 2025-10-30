@@ -1,8 +1,10 @@
 "use client";
 import { motion } from "motion/react";
-import { GlowingEffect } from "./glowing-effect";
+
 import { CardContainer, CardBody, CardItem } from "./3d-card";
-import { PointerHighlight } from "./pointer-highlight";
+
+
+
 
 
 export function LegalServicesSection() {
@@ -48,38 +50,22 @@ export function LegalServicesSection() {
             {services.map((service, index) => {
               return (
                 <div key={index} data-card={index} onMouseEnter={() => {
-                    const lordIcon = document.querySelectorAll(`[data-card="${index}"] lord-icon`)[0] as HTMLElement & { play: () => void };
-                    if (lordIcon) lordIcon.play();
+                    const lordIcon = document.querySelectorAll(`[data-card="${index}"] lord-icon`)[0] as HTMLElement & { play?: () => void };
+                    if (lordIcon && lordIcon.play) lordIcon.play();
                   }}>
                   <CardContainer className="inter-var ">
                     <CardBody className="bg-gray-50 relative group/card border-gray-200 w-80 h-auto rounded-xl p-6 border">
                     <CardItem translateZ="50" className="flex items-center justify-between mb-6 gap-4">
                       <motion.div
                         whileHover={{ scale: 1.1 }}
-                        className="inline-flex items-center justify-center w-16 h-16 rounded-full text-2xl"
-                        style={{ backgroundColor: '#ea6a611a' }}
+                        className="inline-flex items-center justify-center w-16 h-16 rounded-full text-2xl bg-[#ea6a611a]"
                       >
                         {index === 0 ? (
-                          <lord-icon
-                            src="https://cdn.lordicon.com/qlpudrww.json"
-                            trigger="morph"
-                            colors="primary:#ea6a61"
-                            style={{width:"40px", height:"40px"}}
-                          ></lord-icon>
+                          <div className="w-10 h-10 bg-[#ea6a61] rounded-full flex items-center justify-center text-white text-lg font-bold">B</div>
                         ) : index === 1 ? (
-                          <lord-icon
-                            src="https://cdn.lordicon.com/oeotfwsx.json"
-                            trigger="morph"
-                            colors="primary:#ea6a61"
-                            style={{width:"40px", height:"40px"}}
-                          ></lord-icon>
+                          <div className="w-10 h-10 bg-[#ea6a61] rounded-full flex items-center justify-center text-white text-lg font-bold">F</div>
                         ) : (
-                          <lord-icon
-                            src="https://cdn.lordicon.com/jqqjtvlf.json"
-                            trigger="morph"
-                            colors="primary:#ea6a61"
-                            style={{width:"40px", height:"40px"}}
-                          ></lord-icon>
+                          <div className="w-10 h-10 bg-[#ea6a61] rounded-full flex items-center justify-center text-white text-lg font-bold">P</div>
                         )}
                       </motion.div>
                       

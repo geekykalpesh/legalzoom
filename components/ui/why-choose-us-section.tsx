@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "motion/react";
-import { PointerHighlight } from "./pointer-highlight";
+
 import { LayoutTextFlip } from "./layout-text-flip";
 import { cn } from "@/lib/utils";
 import { CardContainer, CardBody, CardItem } from "./3d-card";
@@ -26,11 +26,11 @@ export function WhyChooseUsSection() {
       <div
         className={cn(
           "absolute inset-0",
-          "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
+          "bg-size-[40px_40px]",
+          "bg-[linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
         )}
       />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white mask-[radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <div className="container-xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ export function WhyChooseUsSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <CardContainer className="inter-var">
-                <CardBody className="bg-gradient-to-br from-gray-900 to-black relative group/card border-gray-700 w-80 h-auto rounded-xl p-8 border border-l-4 border-l-[#ea6a61] shadow-2xl shadow-black/50">
+                <CardBody className="bg-linear-to-br from-gray-900 to-black relative group/card border-gray-700 w-80 h-auto rounded-xl p-8 border border-l-4 border-l-[#ea6a61] shadow-2xl shadow-black/50">
                   <CardItem translateZ="100" className="text-center mb-4">
                     <h3 className="heading-sm text-white">
                       {feature.title}
