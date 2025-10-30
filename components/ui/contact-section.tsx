@@ -97,12 +97,7 @@ export function ContactSection() {
                     <span className="shadow"></span>
                     <span className="edge"></span>
                     <span className="front flex items-center gap-2">
-                      <lord-icon
-                        src="https://cdn.lordicon.com/bpptgtfr.json"
-                        trigger="hover"
-                        colors="primary:#ffffff"
-                        style={{width:"20px", height:"20px"}}
-                      ></lord-icon>
+                      💬
                       Chat with us
                     </span>
                   </button>
