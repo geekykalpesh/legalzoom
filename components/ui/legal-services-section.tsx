@@ -32,7 +32,7 @@ export function LegalServicesSection() {
   ];
 
   return (
-    <div className="py-20 px-6 bg-gradient-to-br from-gray-50 to-white">
+    <div className="px-6 py-10 bg-gradient-to-br from-gray-50 to-white">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,8 +58,12 @@ export function LegalServicesSection() {
           <div className="flex flex-wrap justify-center gap-4">
             {services.map((service, index) => {
               return (
-                <CardContainer key={index} className="inter-var py-2">
-                  <CardBody className="bg-gray-50 relative group/card border-gray-200 w-80 h-auto rounded-xl p-6 border">
+                <div key={index} data-card={index} onMouseEnter={() => {
+                    const lordIcon = document.querySelectorAll(`[data-card="${index}"] lord-icon`)[0] as HTMLElement & { play: () => void };
+                    if (lordIcon) lordIcon.play();
+                  }}>
+                  <CardContainer className="inter-var ">
+                    <CardBody className="bg-gray-50 relative group/card border-gray-200 w-80 h-auto rounded-xl p-6 border">
                     <CardItem translateZ="50" className="flex items-center justify-between mb-6 gap-4">
                       <motion.div
                         whileHover={{ scale: 1.1 }}
@@ -69,21 +73,21 @@ export function LegalServicesSection() {
                         {index === 0 ? (
                           <lord-icon
                             src="https://cdn.lordicon.com/qlpudrww.json"
-                            trigger="hover"
+                            trigger="morph"
                             colors="primary:#ea6a61"
                             style={{width:"40px", height:"40px"}}
                           ></lord-icon>
                         ) : index === 1 ? (
                           <lord-icon
                             src="https://cdn.lordicon.com/oeotfwsx.json"
-                            trigger="hover"
+                            trigger="morph"
                             colors="primary:#ea6a61"
                             style={{width:"40px", height:"40px"}}
                           ></lord-icon>
                         ) : (
                           <lord-icon
                             src="https://cdn.lordicon.com/jqqjtvlf.json"
-                            trigger="hover"
+                            trigger="morph"
                             colors="primary:#ea6a61"
                             style={{width:"40px", height:"40px"}}
                           ></lord-icon>
@@ -114,8 +118,9 @@ export function LegalServicesSection() {
                         </button>
                       ))}
                     </CardItem>
-                  </CardBody>
-                </CardContainer>
+                    </CardBody>
+                  </CardContainer>
+                </div>
               );
             })}
           </div>

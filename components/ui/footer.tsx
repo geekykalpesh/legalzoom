@@ -1,60 +1,64 @@
 "use client";
-import { motion } from "motion/react";
 
 export function Footer() {
-
   return (
-    <footer className="bg-white text-black py-6 relative z-50">
+    <footer className="bg-white text-black py-12 relative z-50">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Newsletter */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-6 h-6 rounded-full bg-[#ea6a61] flex items-center justify-center">
-                <span className="text-white text-sm">✉</span>
-              </div>
-              <h3 className="text-lg font-semibold">
-                Get helpful tips!
-              </h3>
-            </div>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="name@email.com"
-                className="flex-1 px-4 py-2 rounded-md text-gray-900"
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 rounded-md transition-colors" style={{ backgroundColor: '#ea6a61' }} onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#d85a51'} onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#ea6a61'}
-              >
-                Subscribe
-              </motion.button>
-            </div>
-          </div>
-
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Company */}
           <div>
             <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-black">
-              <li><a href="#" className="hover:text-gray-600 transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-gray-600 transition-colors">Contact</a></li>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">About</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Contact</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Careers</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Investors</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Press</a></li>
             </ul>
           </div>
 
           {/* Support */}
           <div>
             <h4 className="font-semibold mb-4">Support</h4>
-            <ul className="space-y-2 text-black">
-              <li><a href="#" className="hover:text-gray-600 transition-colors">Customer Care</a></li>
-              <li><a href="#" className="hover:text-gray-600 transition-colors">Speak with attorney</a></li>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Customer Care</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Speak with an attorney</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Order status</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Join attorney network</a></li>
+            </ul>
+          </div>
+
+          {/* Legal Services */}
+          <div>
+            <h4 className="font-semibold mb-4">Legal Services</h4>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">What is an LLC?</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">How to Start an LLC?</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Business Formation</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Trademark Search</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Legal Templates</a></li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="font-semibold mb-4">Resources</h4>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Business Name Generator</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">What is a DBA?</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Registered Agent</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Small Business Ideas</a></li>
+              <li><a href="#" className="hover:text-[#ea6a61] transition-colors">Legal Help Center</a></li>
             </ul>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-gray-300 text-center text-black">
-          <p>&copy; 2024 LegalZoom. All rights reserved.</p>
+        {/* Copyright and Legal */}
+        <div className="border-t border-gray-300 pt-8">
+          <p className="text-sm mb-4">&copy; 2024 LegalZoom. All rights reserved.</p>
+          <p className="text-xs text-gray-600">
+            LegalZoom provides access to independent attorneys and self-service tools. Use of our services is governed by our Terms of Use and Privacy Policy.
+          </p>
         </div>
       </div>
     </footer>

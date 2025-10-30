@@ -20,7 +20,7 @@ export function WhyChooseUsSection() {
   ];
 
   return (
-    <div className="py-20 px-6 bg-white relative overflow-hidden">
+    <div className="py-10 px-6 bg-white relative overflow-hidden">
       <div className="absolute -bottom-48 -left-48 w-96 h-96 rounded-full border-[64px] border-[#ea6a61] opacity-15 z-0 animate-spin" style={{animationDuration: '20s'}}></div>
       <div className="absolute -top-48 -right-48 w-96 h-96 rounded-full border-[64px] border-[#ea6a61] opacity-15 z-0 animate-spin" style={{animationDuration: '25s', animationDirection: 'reverse'}}></div>
       <div className="mx-auto max-w-7xl relative z-10">

@@ -62,7 +62,7 @@ export function HighlightsSection() {
   return (
     <div className="relative bg-neutral-950 rounded-md overflow-hidden">
      
-      <div className="mx-auto max-w-7xl py-20 px-6 relative z-10">
+      <div className="mx-auto max-w-7xl py-10 px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

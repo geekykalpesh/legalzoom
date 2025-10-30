@@ -5,7 +5,7 @@ import { LayoutTextFlip } from "./layout-text-flip";
 
 export function AttorneySection() {
   return (
-    <div className="mx-auto max-w-7xl py-20 px-6">
+    <div className="mx-auto max-w-7xl py-5 px-6">
       <div className="text-center max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

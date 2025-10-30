@@ -26,7 +26,7 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <div className="relative flex min-h-[40rem] w-full overflow-hidden bg-black antialiased py-20">
+    <div className="relative flex  w-full overflow-hidden bg-black antialiased  py-10">
       <div
         className={cn(
           "pointer-events-none absolute inset-0 [background-size:40px_40px] select-none",
@@ -38,8 +38,8 @@ export function TestimonialsSection() {
         fill="white"
       />
       <div className="relative z-10 w-full">
-        <div className="text-center mb-12">
-          <h2 className="bg-opacity-50 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-center text-4xl font-bold text-transparent md:text-5xl mb-4">
+        <div className="text-center ">
+          <h2 className="bg-opacity-50 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-center text-4xl font-bold text-transparent md:text-5xl ">
             What our clients say
           </h2>
         </div>
