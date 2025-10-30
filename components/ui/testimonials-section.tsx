@@ -26,7 +26,7 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <div className="relative flex  w-full overflow-hidden bg-black antialiased  py-10">
+    <div className="relative flex  w-full overflow-hidden bg-black antialiased py-10">
       <div
         className={cn(
           "pointer-events-none absolute inset-0 [background-size:40px_40px] select-none",

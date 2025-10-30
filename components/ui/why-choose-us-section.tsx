@@ -20,15 +20,15 @@ export function WhyChooseUsSection() {
   ];
 
   return (
-    <div className="py-10 px-6 bg-white relative overflow-hidden">
+    <div className="section bg-white relative overflow-hidden">
       <div className="absolute -bottom-48 -left-48 w-96 h-96 rounded-full border-[64px] border-[#ea6a61] opacity-15 z-0 animate-spin" style={{animationDuration: '20s'}}></div>
       <div className="absolute -top-48 -right-48 w-96 h-96 rounded-full border-[64px] border-[#ea6a61] opacity-15 z-0 animate-spin" style={{animationDuration: '25s', animationDirection: 'reverse'}}></div>
-      <div className="mx-auto max-w-7xl relative z-10">
+      <div className="container-xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-xl"
         >
           <div className="flex flex-col items-center justify-center gap-4 text-center sm:flex-row">
             <LayoutTextFlip
@@ -38,7 +38,7 @@ export function WhyChooseUsSection() {
           </div>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -47,10 +47,10 @@ export function WhyChooseUsSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="text-center p-6"
             >
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <h3 className="heading-sm text-gray-900 mb-sm">
                 {feature.title}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-base text-gray-600">
                 {feature.description}
               </p>
             </motion.div>

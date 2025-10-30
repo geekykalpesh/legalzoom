@@ -5,13 +5,13 @@ import { LayoutTextFlip } from "./layout-text-flip";
 
 export function AttorneySection() {
   return (
-    <div className="mx-auto max-w-7xl py-5 px-6">
-      <div className="text-center max-w-4xl mx-auto">
+    <div className="section-sm">
+      <div className="text-center container-lg">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-8 flex flex-col items-center justify-center gap-4 text-center sm:flex-row"
+          className=" flex flex-col items-center justify-center gap-md text-center sm:flex-row"
         >
           <LayoutTextFlip
             text="Attorneys with you,"
@@ -23,7 +23,7 @@ export function AttorneySection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed"
+          className="text-lg text-gray-600 mb-xl container-md leading-relaxed p-5 pb-8"
         >
           Vetted attorneys, no hourly charges.
         </motion.p>
@@ -32,7 +32,7 @@ export function AttorneySection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-wrap gap-4 justify-center items-center"
+          className="flex flex-wrap gap-md justify-center items-center"
         >
           <button>
             <span className="shadow"></span>

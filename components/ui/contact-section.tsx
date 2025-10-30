@@ -19,7 +19,7 @@ export function ContactSection() {
   ];
 
   return (
-    <LampContainer className="pt-15 relative -mb-80">
+    <LampContainer className="pt-15 relative -mb-80 pb-10">
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

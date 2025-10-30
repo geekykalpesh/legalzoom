@@ -62,19 +62,20 @@ export function HighlightsSection() {
   return (
     <div className="relative bg-neutral-950 rounded-md overflow-hidden">
      
-      <div className="mx-auto max-w-7xl py-10 px-6 relative z-10">
+      <div className="section relative z-10">
+        <div className="container-xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-xl"
         >
-          <h2 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 mb-4">
+          <h2 className="heading-xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 mb-md">
             Proven Track Record
           </h2>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
           {highlights.map((highlight, index) => (
             <motion.div
               key={index}
@@ -86,14 +87,15 @@ export function HighlightsSection() {
               <div className="text-5xl font-bold mb-4" style={{ color: '#ea6a61' }}>
                 <AnimatedNumber finalNumber={highlight.number} />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">
+              <h3 className="heading-sm font-semibold text-white mb-sm">
                 {highlight.title}
               </h3>
-              <p className="text-neutral-400">
+              <p className="text-base text-neutral-400">
                 {highlight.description}
               </p>
             </motion.div>
           ))}
+        </div>
         </div>
       </div>
       <BackgroundBeams />

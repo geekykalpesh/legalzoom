@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { GlowingEffect } from "./glowing-effect";
 import { CardContainer, CardBody, CardItem } from "./3d-card";
 import { PointerHighlight } from "./pointer-highlight";
-import { TypewriterEffectSmooth } from "./typewriter-effect";
+
 
 export function LegalServicesSection() {
 
@@ -32,28 +32,17 @@ export function LegalServicesSection() {
   ];
 
   return (
-    <div className="px-6 py-10 bg-gradient-to-br from-gray-50 to-white">
-      <div className="mx-auto max-w-7xl">
+    <div className="section bg-gradient-to-br from-gray-50 to-white">
+      <div className="container-xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center "
+          className="text-center mb-xl"
         >
-          <TypewriterEffectSmooth 
-            words={[
-              { text: "Legal" },
-              { text: "help" },
-              { text: "for" },
-              { text: "every" },
-              { text: "part" },
-              { text: "of" },
-              { text: "your" },
-              { text: "life", className: "text-[#ea6a61]" }
-            ]}
-            cursorClassName="bg-[#ea6a61]"
-            className="text-4xl md:text-5xl font-bold text-gray-900 justify-center"
-          />
+          <h2 className="heading-lg text-gray-900">
+            Legal help for every part of your <span className="text-[#ea6a61]">life</span>
+          </h2>
         </motion.div>
           <div className="flex flex-wrap justify-center gap-4">
             {services.map((service, index) => {
@@ -94,12 +83,12 @@ export function LegalServicesSection() {
                         )}
                       </motion.div>
                       
-                      <h3 className="text-2xl font-bold text-gray-900 text-right flex-1 ml-4">
+                      <h3 className="heading-md text-gray-900 text-right flex-1 ml-4">
                         {service.heading}
                       </h3>
                     </CardItem>
                     
-                    <CardItem translateZ="60" as="p" className="text-gray-600 mb-6 leading-relaxed">
+                    <CardItem translateZ="60" as="p" className="text-base text-gray-600 mb-md leading-relaxed">
                       {service.paragraph}
                     </CardItem>
                     
