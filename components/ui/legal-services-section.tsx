@@ -49,10 +49,7 @@ export function LegalServicesSection() {
           <div className="flex flex-wrap justify-center gap-4">
             {services.map((service, index) => {
               return (
-                <div key={index} data-card={index} onMouseEnter={() => {
-                    const lordIcon = document.querySelectorAll(`[data-card="${index}"] lord-icon`)[0] as HTMLElement & { play?: () => void };
-                    if (lordIcon && lordIcon.play) lordIcon.play();
-                  }}>
+                <div key={index} data-card={index}>
                   <CardContainer className="inter-var ">
                     <CardBody className="bg-gray-50 relative group/card border-gray-200 w-80 h-auto rounded-xl p-6 border">
                     <CardItem translateZ="50" className="flex items-center justify-between mb-6 gap-4">

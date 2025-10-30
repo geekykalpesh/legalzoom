@@ -8,15 +8,9 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'lord-icon': any;
-    }
-  }
-}
+
 
 
 interface NavbarProps {
@@ -233,18 +227,6 @@ export const MobileNavToggle = ({
 };
 
 export const NavbarLogo = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.lordicon.com/lordicon.js';
-    script.async = true;
-    document.head.appendChild(script);
-    
-    return () => {
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
-    };
-  }, []);
 
   return (
     <a
