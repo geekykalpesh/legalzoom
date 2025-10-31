@@ -101,7 +101,7 @@ export function HeroSection() {
               <span className="edge"></span>
               <span className="front">Wills & Trusts</span>
             </button>
-            <button>
+            <button onClick={() => router.push('/business/intellectual-property')}>
               <span className="shadow"></span>
               <span className="edge"></span>
               <span className="front">Intellectual Property</span>
