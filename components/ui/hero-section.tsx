@@ -5,11 +5,13 @@ import { FlipWords } from "./flip-words";
 import { AnimatedShinyText } from "./animated-shiny-text";
 import { BackgroundBeamsWithCollision } from "./background-beams-with-collision";
 import { SparklesCore } from "./sparkles";
-
+import { useRouter } from "next/navigation";
 import { Ripple } from "./ripple";
 import { CardContainer, CardBody, CardItem } from "./3d-card";
 
 export function HeroSection() {
+  const router = useRouter();
+
   return (
     <BackgroundBeamsWithCollision className="min-h-screen w-full">
       <div
@@ -87,15 +89,14 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <button>
+            <button onClick={() => router.push('/business/business-formation')}>
               <span className="shadow"></span>
               <span className="edge"></span>
-              <span className="front flex items-center gap-2">
-
+              <span className="front">
                 Business Formation
               </span>
             </button>
-            <button>
+            <button onClick={() => router.push('/personal/estate-planning/estate-planning-bundle')}>
               <span className="shadow"></span>
               <span className="edge"></span>
               <span className="front">Wills & Trusts</span>
