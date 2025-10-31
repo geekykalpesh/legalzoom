@@ -79,7 +79,7 @@ export default function EstatePlanningBundlePage() {
           >
             <TextGenerateEffect 
               words="Estate plans at affordable prices"
-              className="text-8xl md:text-9xl font-extrabold text-gray-900 mb-8"
+              className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-8"
             />
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
               Create your will or trust online with professional legal assistance.
