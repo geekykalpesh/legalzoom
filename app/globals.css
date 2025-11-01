@@ -240,6 +240,25 @@
   }
 }
 
+@keyframes cell-ripple {
+  0% {
+    background-color: rgba(59, 130, 246, 0.8);
+    transform: scale(1);
+  }
+  50% {
+    background-color: rgba(59, 130, 246, 0.4);
+    transform: scale(1.1);
+  }
+  100% {
+    background-color: var(--cell-fill-color);
+    transform: scale(1);
+  }
+}
+
+.animate-cell-ripple {
+  animation: cell-ripple var(--duration, 400ms) ease-out var(--delay, 0ms);
+}
+
 .animate-meteor-effect {
   animation: meteor-effect linear infinite;
 }

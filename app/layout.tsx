@@ -13,6 +13,7 @@ import {
   NavbarLogo,
   NavbarButton,
 } from "../components/ui/resizable-navbar";
+import { BackgroundRippleEffect } from "../components/ui/background-ripple-effect";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -50,28 +51,33 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar className="fixed top-0 z-50">
-          <NavBody>
-            <NavbarLogo />
-            <NavItems items={navItems} />
-            <NavbarButton>Sign In</NavbarButton>
-          </NavBody>
-          <MobileNav>
-            <MobileNavHeader>
+        <div className="relative min-h-screen">
+          <BackgroundRippleEffect rows={12} cols={35} cellSize={40} />
+          <Navbar className="fixed top-0 z-50">
+            <NavBody>
               <NavbarLogo />
-              <MobileNavToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-            </MobileNavHeader>
-            <MobileNavMenu isOpen={isOpen} onClose={() => setIsOpen(false)}>
-              {navItems.map((item, idx) => (
-                <a key={idx} href={item.link} className="text-neutral-600">
-                  {item.name}
-                </a>
-              ))}
-            </MobileNavMenu>
-          </MobileNav>
-        </Navbar>
-        <div className="pt-16">
-          {children}
+              <NavItems items={navItems} />
+              <NavbarButton>Sign In</NavbarButton>
+            </NavBody>
+            <MobileNav>
+              <MobileNavHeader>
+                <NavbarLogo />
+                <MobileNavToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+              </MobileNavHeader>
+              <MobileNavMenu isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                {navItems.map((item, idx) => (
+                  <a key={idx} href={item.link} className="text-neutral-600">
+                    {item.name}
+                  </a>
+                ))}
+              </MobileNavMenu>
+            </MobileNav>
+          </Navbar>
+          <div className="relative z-10 pt-16 max-w-6xl mx-auto px-4">
+            <div className="border border-gray-200 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg">
+              {children}
+            </div>
+          </div>
         </div>
       </body>
     </html>
