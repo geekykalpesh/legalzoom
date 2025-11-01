@@ -259,7 +259,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
               
               {["attorneys", "forms", "support"].includes(dropdownOpen) && (
                 <ul className="space-y-2">
-                  {dropdownItems[dropdownOpen].map((subItem, subIdx) => (
+                  {(dropdownItems[dropdownOpen as keyof typeof dropdownItems] as string[]).map((subItem, subIdx) => (
                     <li key={subIdx}>
                       <a href="#" className="text-sm text-gray-600 hover:text-gray-900 block py-2">
                         {subItem}
