@@ -27,7 +27,7 @@ export default function IntellectualPropertyPage() {
     },
     {
       title: "Provisional patent application",
-      description: "If you're not ready to file for a utility patent, buy time and get \"patent pending\" status.",
+      description: "Get \"patent pending\" status while you prepare.",
       buttonText: "Learn more"
     },
     {
@@ -40,7 +40,7 @@ export default function IntellectualPropertyPage() {
   const secondSectionServices = [
     {
       title: "Trademark",
-      description: "A name, slogan, or logo that distinguishes your product or service from competitors.",
+      description: "A name, slogan, or logo that distinguishes your product.",
       items: ["Name", "Logo", "Slogan", "Symbol", "Brand", "Mark", "Design", "Identity"],
       buttonText: "Start my trademark"
     },

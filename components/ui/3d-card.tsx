@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { GlowingEffect } from "./glowing-effect";
 
 import React, {
   createContext,
@@ -86,10 +87,18 @@ export const CardBody = ({
   return (
     <div
       className={cn(
-        "h-96 w-96 [transform-style:preserve-3d]  [&>*]:[transform-style:preserve-3d]",
+        "h-96 w-96 [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d] relative",
         className
       )}
     >
+      <GlowingEffect
+        spread={30}
+        glow={true}
+        disabled={false}
+        proximity={80}
+        inactiveZone={0.01}
+        borderWidth={1}
+      />
       {children}
     </div>
   );
