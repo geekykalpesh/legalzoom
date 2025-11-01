@@ -111,31 +111,166 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
 
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
+  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+
+  const dropdownItems = {
+    business: {
+      "Register your business": [
+        "Limited liability company (LLC)",
+        "Corporation (C corp, S corp)", 
+        "Doing business as (DBA)",
+        "Nonprofit",
+        "Sole proprietorship",
+        "View All",
+        "Help me decide"
+      ],
+      "Run your business": [
+        "Business compliance coverage",
+        "Annual report",
+        "Business licenses",
+        "Operating agreement",
+        "Registered agent",
+        "LZ Virtual Mail",
+        "Dissolution",
+        "Business Credit",
+        "View All"
+      ],
+      "Protect your business": [
+        "Trademark registration",
+        "Comprehensive trademark search",
+        "Free trademark search",
+        "Trademark monitoring",
+        "Provisional patent",
+        "Copyright",
+        "View All",
+        "Help me decide"
+      ]
+    },
+    personal: {
+      "Estate plans": [
+        "Will",
+        "Trust",
+        "Help me decide"
+      ],
+      "Family": [
+        "Power of attorney",
+        "Healthcare directive",
+        "Divorce"
+      ],
+      "Real estate": [
+        "Residential lease",
+        "Property deed transfer"
+      ],
+      "Services": [
+        "Virtual Mail"
+      ]
+    },
+    attorneys: [
+      "Business attorney plans",
+      "Personal attorney plans",
+      "Trademark registration",
+      "Other legal matters"
+    ],
+    forms: [
+      "Doc Assist AI",
+      "Legal form templates",
+      "eSignature"
+    ],
+    support: [
+      "Resources",
+      "Contact us"
+    ]
+  };
 
   return (
     <motion.div
-      onMouseLeave={() => setHovered(null)}
+      onMouseLeave={() => {
+        setHovered(null);
+        setDropdownOpen(null);
+      }}
       className={cn(
         "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
         className,
       )}
     >
       {items.map((item, idx) => (
-        <a
-          onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
-          className="relative px-4 py-2 text-neutral-600"
+        <div
           key={`link-${idx}`}
-          href={item.link}
+          className="relative"
+          onMouseEnter={() => {
+            setHovered(idx);
+            const itemName = item.name.toLowerCase();
+            if (["business", "personal", "attorneys", "forms", "support"].includes(itemName)) {
+              setDropdownOpen(itemName);
+            } else {
+              setDropdownOpen(null);
+            }
+          }}
         >
-          {hovered === idx && (
+          <a
+            onClick={onItemClick}
+            className="relative px-4 py-2 text-neutral-600 block"
+            href={item.link}
+          >
+            {hovered === idx && (
+              <motion.div
+                layoutId="hovered"
+                className="absolute inset-0 h-full w-full rounded-full bg-gray-100"
+              />
+            )}
+            <span className="relative z-20">{item.name}</span>
+          </a>
+          
+          {dropdownOpen && dropdownOpen === item.name.toLowerCase() && (
             <motion.div
-              layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-gray-100"
-            />
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white rounded-lg shadow-xl border p-6 z-50 ${
+                dropdownOpen === "business" || dropdownOpen === "personal" ? "w-[800px]" : "w-[300px]"
+              }`}
+            >
+              {(dropdownOpen === "business" || dropdownOpen === "personal") && (
+                <>
+                  <div className="grid grid-cols-3 gap-8">
+                    {Object.entries(dropdownItems[dropdownOpen]).map(([category, items]) => (
+                      <div key={category}>
+                        <h3 className="font-semibold text-gray-900 mb-3">{category}</h3>
+                        <ul className="space-y-2">
+                          {items.map((subItem, subIdx) => (
+                            <li key={subIdx}>
+                              <a href="#" className="text-sm text-gray-600 hover:text-gray-900 block py-1">
+                                {subItem}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                  {dropdownOpen === "business" && (
+                    <div className="mt-6 pt-4 border-t">
+                      <a href="#" className="text-sm font-semibold text-gray-900 hover:text-gray-700">
+                        See all business services
+                      </a>
+                    </div>
+                  )}
+                </>
+              )}
+              
+              {["attorneys", "forms", "support"].includes(dropdownOpen) && (
+                <ul className="space-y-2">
+                  {dropdownItems[dropdownOpen].map((subItem, subIdx) => (
+                    <li key={subIdx}>
+                      <a href="#" className="text-sm text-gray-600 hover:text-gray-900 block py-2">
+                        {subItem}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </motion.div>
           )}
-          <span className="relative z-20">{item.name}</span>
-        </a>
+        </div>
       ))}
     </motion.div>
   );
