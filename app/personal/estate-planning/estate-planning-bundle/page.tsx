@@ -8,7 +8,7 @@ import { useState } from "react";
 export default function EstatePlanningBundlePage() {
   const [selectedTab, setSelectedTab] = useState("individual");
 
-  const willPlans = [
+  const individualWillPlans = [
     {
       title: "Pro Will",
       price: "$149",
@@ -37,7 +37,36 @@ export default function EstatePlanningBundlePage() {
     }
   ];
 
-  const trustPlans = [
+  const coupleWillPlans = [
+    {
+      title: "Pro Will",
+      price: "$249",
+      buttonText: "Start my will",
+      features: [
+        "2 Last will & testaments",
+        "2 Healthcare directives",
+        "2 Power of attorney",
+        "30 days attorney consultations",
+        "Document storage"
+      ]
+    },
+    {
+      title: "Premium Will",
+      price: "$399",
+      buttonText: "Start my will",
+      features: [
+        "2 Last will & testaments",
+        "2 Healthcare directives",
+        "2 Power of attorney",
+        "1 year attorney consultations",
+        "Document storage",
+        "10% off products",
+        "Annual estate review"
+      ]
+    }
+  ];
+
+  const individualTrustPlans = [
     {
       title: "Basic Trust",
       price: "$399",
@@ -61,11 +90,42 @@ export default function EstatePlanningBundlePage() {
         "Power of attorney",
         "1 year attorney consultations",
         "Document storage",
-        "10% off products",
         "Annual estate review"
       ]
     }
   ];
+
+  const coupleTrustPlans = [
+    {
+      title: "Basic Trust",
+      price: "$499",
+      buttonText: "Start my trust",
+      features: [
+        "Living trust",
+        "2 Pour-over wills",
+        "2 Healthcare directives",
+        "2 Power of attorney",
+        "Document storage"
+      ]
+    },
+    {
+      title: "Premium Trust",
+      price: "$649",
+      buttonText: "Start my trust",
+      features: [
+        "Living trust",
+        "2 Pour-over wills",
+        "2 Healthcare directives",
+        "2 Power of attorney",
+        "1 year attorney consultations",
+        "Document storage",
+        "Annual estate review"
+      ]
+    }
+  ];
+
+  const willPlans = selectedTab === "individual" ? individualWillPlans : coupleWillPlans;
+  const trustPlans = selectedTab === "individual" ? individualTrustPlans : coupleTrustPlans;
 
   return (
     <div className="min-h-screen bg-white">
@@ -121,7 +181,7 @@ export default function EstatePlanningBundlePage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {willPlans.map((plan, index) => (
                   <motion.div
-                    key={index}
+                    key={`${selectedTab}-will-${index}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -143,11 +203,12 @@ export default function EstatePlanningBundlePage() {
                         </CardItem>
                         
                         <CardItem translateZ="40" className="mb-4">
+                          <div className="text-xs text-gray-700 mb-2 font-semibold">Includes:</div>
                           <ul className="space-y-1">
                             {plan.features.map((feature, idx) => (
                               <li key={idx} className="text-xs text-gray-600 flex items-start">
-                                <span className="text-[#ea6a61] mr-2">•</span>
-                                {feature}
+                                <span className="text-[#ea6a61] mr-2 mt-0.5">•</span>
+                                <span className="flex-1">{feature}</span>
                               </li>
                             ))}
                           </ul>
@@ -168,7 +229,7 @@ export default function EstatePlanningBundlePage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {trustPlans.map((plan, index) => (
                   <motion.div
-                    key={index}
+                    key={`${selectedTab}-trust-${index}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -190,11 +251,12 @@ export default function EstatePlanningBundlePage() {
                         </CardItem>
                         
                         <CardItem translateZ="40" className="mb-4">
+                          <div className="text-xs text-gray-700 mb-2 font-semibold">Includes:</div>
                           <ul className="space-y-1">
                             {plan.features.map((feature, idx) => (
                               <li key={idx} className="text-xs text-gray-600 flex items-start">
-                                <span className="text-[#ea6a61] mr-2">•</span>
-                                {feature}
+                                <span className="text-[#ea6a61] mr-2 mt-0.5">•</span>
+                                <span className="flex-1">{feature}</span>
                               </li>
                             ))}
                           </ul>
