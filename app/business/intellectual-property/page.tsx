@@ -7,7 +7,7 @@ export default function IntellectualPropertyPage() {
   const firstSectionServices = [
     {
       title: "Trademark registration",
-      description: "Get exclusive rights to a name, symbol, or slogan that distinguishes your business.",
+      description: "Get exclusive rights to a name, symbol, or slogan that distinguishes.",
       buttonText: "Learn more"
     },
     {

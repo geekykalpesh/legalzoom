@@ -21,7 +21,7 @@ export default function BusinessFormationPage() {
     {
       title: "Corporation (S or C Corp)",
       price: "$149 + state fees",
-      description: "Issue shares and attract investors for business growth and expansion.",
+      description: "Issue shares and attract investors for business ",
       buttonText: "Start my Corporation"
     },
     {
@@ -33,7 +33,7 @@ export default function BusinessFormationPage() {
     {
       title: "Doing Business As (DBA)",
       price: "$99 + state fees",
-      description: "Use business name without the complexity of LLC formation and maintenance.",
+      description: "Use business name without the complexity of LLC formation .",
       buttonText: "Start my DBA"
     }
   ];
