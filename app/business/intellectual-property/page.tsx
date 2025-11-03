@@ -2,6 +2,7 @@
 import { motion } from "motion/react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { Footer } from "@/components/ui/footer";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 export default function IntellectualPropertyPage() {
   const firstSectionServices = [
@@ -69,9 +70,12 @@ export default function IntellectualPropertyPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8">
-              You created something great—protect it with the #1 brand in online IP protection
+            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+              Protect Your <span className="text-[#ea6a61]">Intellectual</span> Property
             </h1>
+            <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+              Secure your innovations with professional IP protection.
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-none mx-auto px-4">
@@ -121,9 +125,12 @@ export default function IntellectualPropertyPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8">
-              Get the right intellectual property protection
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+              Get the right <span className="text-[#ea6a61]">intellectual</span> property protection
             </h2>
+            <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+              Choose the protection that fits your needs.
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">

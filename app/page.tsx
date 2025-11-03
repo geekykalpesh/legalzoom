@@ -9,6 +9,9 @@ import { TestimonialsSection } from "../components/ui/testimonials-section";
 import { Footer } from "../components/ui/footer";
 import { ContactSection } from "../components/ui/contact-section";
 
+import { motion } from "motion/react";
+import { useRef } from "react";
+
 export default function Home() {
   useEffect(() => {
     const script = document.createElement('script');
@@ -33,6 +36,7 @@ export default function Home() {
       <LegalServicesSection />
       
       <TestimonialsSection />
+      
       <WhyChooseUsSection />
       
       <ContactSection />

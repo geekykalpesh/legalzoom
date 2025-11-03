@@ -74,7 +74,7 @@ export default function RootLayout({
             </MobileNav>
           </Navbar>
           <div className="relative z-10 pt-16 max-w-6xl mx-auto px-4">
-            <div className="border border-gray-200 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg">
+            <div className="relative border-2 border-gray-300 rounded-2xl bg-white/90 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.15)] hover:shadow-[0_30px_70px_rgba(0,0,0,0.25)] transition-all duration-300 before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/20 before:to-transparent before:rounded-2xl before:pointer-events-none">
               {children}
             </div>
           </div>

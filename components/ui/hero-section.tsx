@@ -9,45 +9,38 @@ import { useRouter } from "next/navigation";
 import { Ripple } from "./ripple";
 import { CardContainer, CardBody, CardItem } from "./3d-card";
 
+
 export function HeroSection() {
   const router = useRouter();
 
+
   return (
-    <BackgroundBeamsWithCollision className="min-h-screen w-full">
-      <div
-        className={cn(
-          "absolute inset-0 z-0",
-          "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-        )}
-      />
-      <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-      
-      <div className="absolute inset-0 z-1">
+    <div className="min-h-screen w-full relative">
+      <div className="absolute inset-0 z-0">
         <Ripple />
       </div>
       
-      <div className="absolute bottom-10 left-10 z-2">
+      <div className="absolute bottom-10 left-10 z-0">
         <Ripple />
       </div>
       
-      <div className="absolute bottom-10 right-10 z-2">
+      <div className="absolute bottom-10 right-10 z-0">
         <Ripple />
       </div>
       
-      <div className="absolute inset-0 z-5 opacity-45">
+      <div className="absolute inset-0 z-0 opacity-100">
         <SparklesCore
           background="transparent"
           minSize={0.6}
           maxSize={1.4}
-          particleDensity={100}
+          particleDensity={50}
           className="w-full h-full"
           particleColor="#ea6a61"
-          speed={2}
+          speed={1}
         />
       </div>
       
-      <main className="relative z-30 flex w-full flex-col items-center justify-start px-6 -mt-8">
+      <main className="relative z-10 flex w-full flex-col items-center justify-center min-h-screen px-6">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -87,7 +80,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
           >
             <button onClick={() => router.push('/business/business-formation')}>
               <span className="shadow"></span>
@@ -107,8 +100,10 @@ export function HeroSection() {
               <span className="front">Intellectual Property</span>
             </button>
           </motion.div>
+          
         </div>
       </main>
-    </BackgroundBeamsWithCollision>
+
+    </div>
   );
 }

@@ -1,9 +1,12 @@
 "use client";
 import { motion } from "motion/react";
 import { LayoutTextFlip } from "./layout-text-flip";
+import { useRouter } from "next/navigation";
 
 
 export function AttorneySection() {
+  const router = useRouter();
+  
   return (
     <div className="section-sm">
       <div className="text-center container-lg">
@@ -32,27 +35,12 @@ export function AttorneySection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-wrap gap-md justify-center items-center"
+          className="flex justify-center"
         >
-          <button>
+          <button onClick={() => router.push('/attorneys')}>
             <span className="shadow"></span>
             <span className="edge"></span>
-            <span className="front">Get legal help</span>
-          </button>
-          <button>
-            <span className="shadow"></span>
-            <span className="edge"></span>
-            <span className="front">Legal plan</span>
-          </button>
-          <button>
-            <span className="shadow"></span>
-            <span className="edge"></span>
-            <span className="front">Schedule a call</span>
-          </button>
-          <button>
-            <span className="shadow"></span>
-            <span className="edge"></span>
-            <span className="front">Attorney directory</span>
+            <span className="front">Attorneys</span>
           </button>
         </motion.div>
       </div>
